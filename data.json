@@ -1,15 +1,30 @@
 {
   "skills": [
     {
-      "name": "fireball",
-      "description": "Launches a fireball, inflicts damage equal to {dmg}% of ATK on the enemy it first hits and nearby enemies, knocks them back, and reduces the hit enemies' Fire Resistance by 100% for 5 seconds.",
-      "skillParams": [
-        {
-          "name": "dmg",
-          "baseValue": 10000,
-          "scalingRate": 1
-        }
-      ]
+      "firstRune": {
+        "name": "fireball",
+        "element": "fire",
+        "description": "Launches a fireball, inflicts damage equal to {dmg}% of ATK on the enemy it first hits and nearby enemies, knocks them back, and reduces the hit enemies' Fire Resistance by 100% for 5 seconds.",
+        "skillParams": [
+          {
+            "name": "dmg",
+            "baseValue": 10000,
+            "scalingRate": 1
+          }
+        ]
+      },
+      "secondRune": {
+        "name": "firespear",
+        "element": "fire",
+        "description": "Hurls a flaming spear that pierces enemies inflicts damage equal to {dmg}% of ATK, stuns the enemy for 3 seconds, and reduces their Damage Reduction by 100%",
+        "skillParams": [
+          {
+            "name": "dmg",
+            "baseValue": 2500,
+            "scalingRate": 1
+          }
+        ]
+      }
     }
   ]
 }

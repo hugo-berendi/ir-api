@@ -28,14 +28,23 @@ func GetSkillByIdWithLevel(c *gin.Context, data data.Data) {
 
 	for idx, skill := range data.Skills {
 		if idx == id {
-			for _, skillParam := range skill.SkillParams {
-				param := skillParam.BaseValue * (skillParam.ScalingRate * level)
-				skill.Description = strings.ReplaceAll(skill.Description, fmt.Sprintf("{%s}", skillParam.Name), strconv.Itoa(param))
-			}
-			c.JSON(http.StatusOK, gin.H{"name": skill.Name, "description": skill.Description})
+			c.JSON(http.StatusOK, calcSkillRunes(skill, level))
 			return
 		}
 	}
 
 	c.JSON(http.StatusNotFound, gin.H{"error": "Skill not found"})
+}
+
+func calcSkillRunes(skill data.Skill, level int) data.Skill {
+	for _, skillParam := range skill.FirstRune.SkillParams {
+		param := skillParam.BaseValue * (skillParam.ScalingRate * level)
+		skill.FirstRune.Description = strings.ReplaceAll(skill.FirstRune.Description, fmt.Sprintf("{%s}", skillParam.Name), strconv.Itoa(param))
+	}
+	for _, skillParam := range skill.SecondRune.SkillParams {
+		param := skillParam.BaseValue * (skillParam.ScalingRate * level)
+		skill.SecondRune.Description = strings.ReplaceAll(skill.SecondRune.Description, fmt.Sprintf("{%s}", skillParam.Name), strconv.Itoa(param))
+	}
+
+	return skill
 }

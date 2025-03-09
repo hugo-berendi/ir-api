@@ -7,10 +7,15 @@ type SkillParam struct {
 	ScalingRate int    `json:"scalingRate"`
 }
 
-type Skill struct {
+type SkillRune struct {
 	Name        string       `json:"name"`
 	Description string       `json:"description"`
 	SkillParams []SkillParam `json:"skillParams"`
+}
+
+type Skill struct {
+	FirstRune  SkillRune `json:"firstRune"`
+	SecondRune SkillRune `json:"secondRune"`
 }
 
 // Main data struct
