@@ -3,17 +3,17 @@ package skills
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/hugo-berendi/ir-api/src/data"
+	"github.com/hugo-berendi/ir-api/data"
 	"net/http"
 	"strconv"
 	"strings"
 )
 
-func GetSkills(c *gin.Context, data data_loader.Data) {
+func GetSkills(c *gin.Context, data data.Data) {
 	c.JSON(http.StatusOK, data.Skills)
 }
 
-func GetSkillByIdWithLevel(c *gin.Context, data data_loader.Data) {
+func GetSkillByIdWithLevel(c *gin.Context, data data.Data) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid skill ID"})

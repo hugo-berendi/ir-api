@@ -2,13 +2,13 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hugo-berendi/ir-api/src/data"
-	"github.com/hugo-berendi/ir-api/src/handlers/skills"
+	"github.com/hugo-berendi/ir-api/data"
+	"github.com/hugo-berendi/ir-api/handlers/skills"
 	"log"
 )
 
 func main() {
-	data, err := data_loader.LoadDataFromFile()
+	data, err := data.LoadDataFromFile()
 	if err != nil {
 		log.Fatalf("Error loading data: %v", err)
 	}
