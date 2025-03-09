@@ -8,14 +8,12 @@ import (
 )
 
 type SkillParam struct {
-	ID          int    `json:"id"`
 	Name        string `json:"name"`
 	BaseValue   int    `json:"baseValue"`
 	ScalingRate int    `json:"scalingRate"`
 }
 
 type Skill struct {
-	ID          int          `json:"id"`
 	Name        string       `json:"name"`
 	Description string       `json:"description"`
 	SkillParams []SkillParam `json:"skillParams"`

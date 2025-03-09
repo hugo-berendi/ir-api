@@ -26,8 +26,8 @@ func GetSkillByIdWithLevel(c *gin.Context, data data_loader.Data) {
 		return
 	}
 
-	for _, skill := range data.Skills {
-		if skill.ID == id {
+	for idx, skill := range data.Skills {
+		if idx == id {
 			for _, skillParam := range skill.SkillParams {
 				param := skillParam.BaseValue * (skillParam.ScalingRate * level)
 				skill.Description = strings.ReplaceAll(skill.Description, fmt.Sprintf("{%s}", skillParam.Name), strconv.Itoa(param))
