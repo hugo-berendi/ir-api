@@ -1,0 +1,17 @@
+{
+  "skills": [
+    {
+      "id": 0,
+      "name": "fireball",
+      "description": "Launches a fireball, inflicts damage equal to {dmg}% of ATK on the enemy it first hits and nearby enemies, knocks them back, and reduces the hit enemies' Fire Resistance by 100% for 5 seconds.",
+      "skillParams": [
+        {
+          "id": 0,
+          "name": "dmg",
+          "baseValue": 10000,
+          "scalingRate": 1
+        }
+      ]
+    }
+  ]
+}
